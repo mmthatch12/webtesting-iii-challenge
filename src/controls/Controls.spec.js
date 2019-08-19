@@ -16,6 +16,12 @@ describe('<Controls />', () => {
       // snapshots are a JSON representation of the DOM tree
       expect(tree.toJSON()).toMatchSnapshot();
     });
+
+    it('shows button to toggle closed and locked states', () => {
+        const butto = render(<Controls />)
+
+        butto.getByDisplayValue()
+    })
   
   });
 
