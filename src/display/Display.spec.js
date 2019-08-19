@@ -1,9 +1,10 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { render, fireEvent } from '@testing-library/react'
-
+import '@testing-library/jest-dom/extend-expect'
 
 import Display from './Display'
+import { get } from 'https';
 
 
 
@@ -75,5 +76,45 @@ describe('<Display />', () => {
       expect(lockedText).toBeTruthy()
 
     })
+
+    it('when locked use the red-led class', () => {
+      const locked = true;
+
+      const { getByText } =render(<Display locked={locked} />)
+      const redlc = getByText(/locked/i)
+
+      expect(redlc).toHaveClass('red-led')
+    })
+
+    it('when closed use the red-led class', () => {
+      const closed = true;
+
+      const { getByText } =render(<Display closed={closed} />)
+      const redlc = getByText(/closed/i)
+
+      expect(redlc).toHaveClass('red-led')
+    })
+
+    it('when unlocked use the red-led class', () => {
+      const unlocked = true;
+
+      const { getByText } =render(<Display unlocked={unlocked} />)
+      const greenlc = getByText(/unlocked/i)
+
+      expect(greenlc).toHaveClass('green-led')
+    })
+
+    it('when open use the red-led class', () => {
+      const open = true;
+
+      const { getByText } =render(<Display open={open} />)
+      const greenlc = getByText(/open/i)
+
+      expect(greenlc).toHaveClass('green-led')
+    })
+
+    
+
+
   
   });
