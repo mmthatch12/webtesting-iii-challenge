@@ -1,12 +1,18 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+
 import Display from './Display'
-import { render } from 'react-testing-library';
+
+
 
 describe('<Display />', () => {
-    it('shoes the controls and display', () => {
-        const tree = renderer.create(<Display />);
-
-        expect(tree.toJSON()).toMatchSnapshot()
-    })
-})
+    // 2. write this test
+  
+    it('matches snapshot', () => {
+      const tree = renderer.create(<Display />); // generates a DOM tree
+  
+      // snapshots are a JSON representation of the DOM tree
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
+  
+  });
