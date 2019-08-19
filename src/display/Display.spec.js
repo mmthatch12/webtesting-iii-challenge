@@ -32,6 +32,8 @@ describe('<Display />', () => {
       unlo.getByText(/unlocked/i)
     })
 
+    
+
     it('displays if gate is open/closed', () => {
 
       render(<Display />)
@@ -112,6 +114,8 @@ describe('<Display />', () => {
 
       expect(greenlc).toHaveClass('green-led')
     })
+
+
 
     
 
