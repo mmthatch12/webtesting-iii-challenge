@@ -8,6 +8,13 @@ import Controls from './Controls'
 
 
 describe('<Controls />', () => {
+
+    it('provides button', () => {
+        render(<button></button>)
+    })
+
+
+
     // 2. write this test
   
     it('matches snapshot', () => {
@@ -17,12 +24,6 @@ describe('<Controls />', () => {
       expect(tree.toJSON()).toMatchSnapshot();
     });
 
-    it('shows button to toggle closed and locked states', () => {
-        const butto = render(<Controls />)
-
-        butto.getByDisplayValue()
-    })
-  
   });
 
   
