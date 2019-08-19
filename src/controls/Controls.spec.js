@@ -1,6 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { render, fireEvent, cleanup } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 
 
 
@@ -28,15 +29,29 @@ describe('<Controls />', () => {
 
     
 
-    // it('closed toggle button is disabled if gate is locked', () => {
-    //     const locked = true;
+    it('closed toggle button is disabled if gate is locked', () => {
+        const locked = true;
 
-    //     const { getByText } = render(<Controls locked={locked} />)
+        const { getByText } = render(<Controls locked={locked} />)
 
-    //     const toggleB = getByText(//)
+        const toggleB = getByText(/close gate/i)
+
+        expect(toggleB).toBeDisabled()
 
 
-    // })
+    })
+
+    it('locked toggle button is disabled if gate is open', () => {
+        const closed = false;
+
+        const { getByText } = render(<Controls closed={closed} />)
+
+        const toggleB = getByText(/lock gate/i)
+
+        expect(toggleB).toBeDisabled()
+
+
+    })
 
   });
 

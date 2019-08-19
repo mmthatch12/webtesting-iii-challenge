@@ -32,14 +32,14 @@ describe('<Display />', () => {
       unlo.getByText(/unlocked/i)
     })
 
-    
 
-    it('displays if gate is open/closed', () => {
+
+    it('displays if gate is open/closed and locked/unlocked', () => {
 
       render(<Display />)
     })
 
-    it('displays closed of the closed prop is true', () => {
+    it('displays closed if the closed prop is true', () => {
       const closed = true;
       
       const { getByText } = render(<Display closed={closed} />)
@@ -97,7 +97,7 @@ describe('<Display />', () => {
       expect(redlc).toHaveClass('red-led')
     })
 
-    it('when unlocked use the red-led class', () => {
+    it('when unlocked use the green-led class', () => {
       const unlocked = true;
 
       const { getByText } =render(<Display unlocked={unlocked} />)
@@ -106,7 +106,7 @@ describe('<Display />', () => {
       expect(greenlc).toHaveClass('green-led')
     })
 
-    it('when open use the red-led class', () => {
+    it('when open use the green-led class', () => {
       const open = true;
 
       const { getByText } =render(<Display open={open} />)

@@ -1,6 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { render, fireEvent, cleanup } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 
 import Dashboard from './Dashboard'
 
@@ -15,6 +16,10 @@ describe('<Dashboard />', () => {
       // snapshots are a JSON representation of the DOM tree
       expect(tree.toJSON()).toMatchSnapshot();
     });
+
+    it('shows the controls and display', () => {
+        render(<Dashboard />)
+    })
 
     it('buttons text changes to reflect state of door', () => {
         const { getByText, queryByText } = render(<Dashboard />)
